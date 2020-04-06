@@ -19,6 +19,10 @@ public class Launcher {
 
 class Window extends JFrame {
 
+    // ---------------------------------------------------------- //
+    // CREATES WINDOW //
+    // ---------------------------------------------------------- //
+
     public Window(int width, int height, String title) {
 
         setSize(width, height);
@@ -52,7 +56,6 @@ class Screen extends JPanel implements ActionListener{
     int graphPopulation = 700, xCor, yCor;
 
     public Screen(Window window) {
-        setOpaque(false);
         this.window = window;
         background = new Background(this);
         setFocusable(true);
@@ -63,6 +66,10 @@ class Screen extends JPanel implements ActionListener{
 
         points[0] = new GraphPoint(xCor, yCor, this);
     }
+
+    // ---------------------------------------------------------- //
+    // RENDERING //
+    // ---------------------------------------------------------- //
 
     public void paint(Graphics graphics) {
         Graphics backgroundGraphics = graphics;
@@ -85,9 +92,13 @@ class Screen extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         restarttimer++;
 
+        // ---------------------------------------------------------- //
+        // RESTARTS THE GRAPH //
+        // ---------------------------------------------------------- //
+
         System.out.println(graphPopulation);
 
-        if (restarttimer > 1000) {
+        if (restarttimer > window.getWidth()/2) {
             restarttimer = 0;
             xCor = 0;
             for (int i = 0; i < points.length; i++) {
@@ -103,8 +114,12 @@ class Screen extends JPanel implements ActionListener{
             }
         }
         repaint();
-        
+
         populationTimer++;
+
+        // ---------------------------------------------------------- //
+        // CREATES RANDOM POINT //
+        // ---------------------------------------------------------- //
 
         if (populationTimer >= populationMaxTimer) {
             populationTimer = 0;
