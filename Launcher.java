@@ -118,7 +118,7 @@ class Screen extends JPanel implements ActionListener{
         populationTimer++;
 
         // ---------------------------------------------------------- //
-        // CREATES RANDOM POINT //
+        // CREATES POINT ON THE GRAPH //
         // ---------------------------------------------------------- //
 
         if (populationTimer >= populationMaxTimer) {
